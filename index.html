@@ -11,12 +11,48 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                error: {
-                    message: 'CORS Exploit Test',
-                    stack: 'Testing CORS vulnerability'
+            body: JSON.stringify([{
+                "error": {
+                    "message": "t.configuration is undefined",
+                    "stack": "isStandaloneMode@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:638854\nget@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:76056\ne.exports@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:128234\ne.exports@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:280944\ne.exports@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:424539\na<@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:90160\ne.exports@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:423975\ne.exports/<@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:280752\nvalue@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:645110\ne.exports</ke/<@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:72490\ne.exports</ze/<@https://d3u4vd6svx5wqp.cloudfront.net/js/v8/sfn.js:2:74626\n"
+                },
+                "state": {
+                    "configuration": {
+                        "allowedCards": [
+                            "VISA",
+                            "MASTERCARD",
+                            "AMEX",
+                            "JCB",
+                            "DINERSCLUB",
+                            "DISCOVER",
+                            "CHINAUNIONPAY"
+                        ],
+                        "assets": {
+                            "css": [
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/stylesheets/storefront.css",
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/stylesheets/configuration.css",
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/stylesheets/variables.css",
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/stylesheets/styles.css"
+                            ],
+                            "html": [
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/blocks/loading.html",
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/blocks/header-receipt.html",
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/blocks/header-storefront.html",
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/blocks/points-logo.html",
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/blocks/content.html",
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/blocks/header.html",
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/blocks/footer.html",
+                                "https://d3u4vd6svx5wqp.cloudfront.net/storefronts/globalrewards/topup/v0.0.425/static/storefront.html"
+                            ]
+                        },
+                        "defaultCurrency": "USD",
+                        "defaultLanguage": "en-US",
+                        "metadata": {
+                            "isProductionMode": true
+                        }
+                    }
                 }
-            })
+            }])
         })
         .then(response => {
             if (response.ok) {
