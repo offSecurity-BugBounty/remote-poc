@@ -9,7 +9,8 @@
         xhr.setRequestHeader("accept", "*\/*");
         xhr.setRequestHeader("accept-language", "en-US,en;q=0.5");
         xhr.setRequestHeader("X-Middleton", "1123");
-        xhr.withCredentials = true;
+        xhr.setRequestHeader("Origin", "https://www.preloved.co.uk");
+        xhr.setRequestHeader("Referer", "https://www.preloved.co.uk/");
         var body = "";
         var aBody = new Uint8Array(body.length);
         for (var i = 0; i < aBody.length; i++)
