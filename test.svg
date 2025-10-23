@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="80" onload="alert(1)">
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="80" oncontentvisibilityautostatechange="alert(1)" style="display:block;content-visibility:auto">
   <script><![CDATA[
     // fallback explicit script run
     alert(1);
