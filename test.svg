@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="80" onload="alert(1)">
+  <script><![CDATA[
+    // fallback explicit script run
+    alert(1);
+  ]]></script>
+  <rect width="100%" height="100%" fill="#eee"/>
+  <text x="10" y="45" font-size="20" fill="#222">SVG alert PoC</text>
+</svg>
