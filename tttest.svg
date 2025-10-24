@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+  <!-- Primary script execution -->
+  <script>alert(1)</script>
+  
+  <!-- Image error handler -->
+  <image xlink:href="x" onerror="alert(2)" width="100" height="100"/>
+  
+  <!-- Clickable link -->
+  <a xlink:href="javascript:alert(3)">
+    <text x="10" y="20">Click me</text>
+  </a>
+  
+  <!-- Simple foreignObject -->
+  <foreignObject x="10" y="30" width="80" height="40">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <img src="x" onerror="alert(4)"/>
+    </div>
+  </foreignObject>
+</svg>
