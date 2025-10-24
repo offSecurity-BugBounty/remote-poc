@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="500" viewBox="0 0 400 500">
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f0f0f0"/>
+  
+  <!-- Title -->
+  <text x="20" y="30" font-family="Arial" font-size="16" fill="black">SVG Security Test</text>
+  
+  <!-- 1. Direct Script Execution -->
+  <script type="text/javascript">
+    <![CDATA[
+      try { alert('Direct Script'); } catch(e) {}
+    ]]>
+  </script>
+  
+  <!-- 2. Image with onerror -->
+  <image xlink:href="invalid-image.jpg" x="20" y="40" width="100" height="50" onerror="try{alert('Image Error')}catch(e){}"/>
+  
+  <!-- 3. JavaScript Links -->
+  <a xlink:href="javascript:try{alert('Link 1')}catch(e){}">
+    <text x="20" y="100" font-family="Arial" font-size="12" fill="blue" text-decoration="underline">JavaScript Link 1</text>
+  </a>
+  
+  <a xlink:href="javascript:try{alert('Link 2')}catch(e){}">
+    <rect x="20" y="110" width="120" height="20" fill="lightblue" stroke="blue" stroke-width="1"/>
+    <text x="25" y="125" font-family="Arial" font-size="12" fill="darkblue">JavaScript Link 2</text>
+  </a>
+  
+  <!-- 4. ForeignObject with HTML Content -->
+  <foreignObject x="20" y="140" width="360" height="200">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Arial; font-size: 12px;">
+      <!-- HTML Script -->
+      <script>try{alert('HTML Script')}catch(e){}</script>
+      
+      <!-- HTML Image Error -->
+      <img src="invalid.jpg" onerror="try{alert('HTML Image Error')}catch(e){}" style="width: 100px; height: 50px;"/>
+      
+      <!-- HTML JavaScript Link -->
+      <a href="javascript:try{alert('HTML Link')}catch(e){}" style="color: blue; text-decoration: underline;">HTML JavaScript Link</a>
+      
+      <!-- Button with onclick -->
+      <button onclick="try{alert('Button Click')}catch(e){}" style="margin: 5px;">Click Button</button>
+      
+      <!-- Form with JavaScript action -->
+      <form action="javascript:try{alert('Form Action')}catch(e){}" style="margin: 5px;">
+        <input type="submit" value="Submit Form"/>
+      </form>
+      
+      <!-- Iframe -->
+      <iframe src="javascript:try{alert('Iframe')}catch(e){}" width="200" height="50" style="border: 1px solid black;"></iframe>
+      
+      <!-- Body onload -->
+      <body onload="try{alert('Body Load')}catch(e){}">
+        <div>Body content</div>
+      </body>
+    </div>
+  </foreignObject>
+  
+  <!-- 5. Animation Events -->
+  <rect x="20" y="350" width="50" height="50" fill="red">
+    <animate attributeName="x" from="20" to="100" dur="2s" begin="0s" onend="try{alert('Animation End')}catch(e){}"/>
+    <animate attributeName="y" from="350" to="380" dur="1s" begin="click" onbegin="try{alert('Animation Begin')}catch(e){}"/>
+  </rect>
+  <text x="20" y="420" font-family="Arial" font-size="10" fill="black">Click red square for animation</text>
+  
+  <!-- 6. Use Element with Event Propagation -->
+  <g id="targetGroup" onclick="try{alert('Group Click')}catch(e){}" onmouseover="try{alert('Group Hover')}catch(e){}">
+    <rect x="150" y="350" width="60" height="40" fill="green"/>
+    <text x="155" y="375" font-family="Arial" font-size="10" fill="white">Hover/Click</text>
+  </g>
+  <use xlink:href="#targetGroup" x="0" y="0"/>
+  
+  <!-- 7. Set Element for Event Attributes -->
+  <rect id="targetRect" x="220" y="350" width="50" height="50" fill="orange"/>
+  <set attributeName="onclick" to="try{alert('Set Click')}catch(e){}" begin="targetRect.click" dur="indefinite"/>
+  <text x="220" y="410" font-family="Arial" font-size="10" fill="black">Click orange square</text>
+  
+  <!-- 8. Multiple Shape Events -->
+  <circle cx="300" cy="375" r="25" fill="purple" onclick="try{alert('Circle Click')}catch(e){}"/>
+  <text x="280" y="410" font-family="Arial" font-size="10" fill="black">Click circle</text>
+  
+  <!-- 9. Path with Events -->
+  <path d="M 20,450 L 100,450 L 60,420 Z" fill="teal" onclick="try{alert('Path Click')}catch(e){}"/>
+  <text x="20" y="470" font-family="Arial" font-size="10" fill="black">Click triangle</text>
+  
+  <!-- 10. Text with Events -->
+  <text x="120" y="450" font-family="Arial" font-size="12" fill="brown" onclick="try{alert('Text Click')}catch(e){}" style="cursor: pointer;">Click this text</text>
+  
+  <!-- 11. CSS Import Attempt -->
+  <style type="text/css">
+    <![CDATA[
+      .test { fill: red; }
+      @import url('data:text/css,*{background:url("javascript:try{alert(\"CSS Import\")}catch(e){}")}');
+    ]]>
+  </style>
+  
+  <!-- 12. Script via xlink:href -->
+  <script xlink:href="data:text/javascript,try{alert('XLink Script')}catch(e){}" type="text/javascript"/>
+  
+  <!-- 13. Metadata Section -->
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>Test SVG</dc:title>
+    </rdf:RDF>
+    <!-- Comment area for hidden content -->
+  </metadata>
+  
+  <!-- 14. Nested SVG -->
+  <svg x="280" y="420" width="80" height="60" viewBox="0 0 80 60">
+    <rect width="100%" height="100%" fill="lightyellow" stroke="gray" stroke-width="1" onclick="try{alert('Nested SVG Click')}catch(e){}"/>
+    <text x="5" y="15" font-family="Arial" font-size="8" fill="black">Nested SVG</text>
+    <circle cx="40" cy="35" r="10" fill="pink" onclick="try{alert('Nested Circle')}catch(e){}"/>
+  </svg>
+  
+  <!-- 15. Additional Event Handlers -->
+  <g onmouseenter="try{alert('Mouse Enter')}catch(e){}" onmouseleave="try{alert('Mouse Leave')}catch(e){}">
+    <rect x="150" y="420" width="100" height="30" fill="lightcoral"/>
+    <text x="155" y="440" font-family="Arial" font-size="10" fill="darkred">Mouse Enter/Leave</text>
+  </g>
+
+</svg>
