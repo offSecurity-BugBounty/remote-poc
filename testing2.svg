@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="600" viewBox="0 0 800 600">
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f8f8"/>
+  <text x="20" y="30" font-family="Verdana" font-size="20" fill="#333">SVG Security Test</text>
+  
+  <!-- Direct Script Blocks -->
+  <script type="text/ecmascript"><![CDATA[try { alert('Direct Script 1'); } catch(e) {}]]></script>
+  <script type="text/javascript"><![CDATA[try { alert('Direct Script 2'); } catch(e) {}]]></script>
+  
+  <!-- Script via href -->
+  <script type="application/ecmascript" xlink:href="data:application/javascript,alert('Href Script')"/>
+  
+  <!-- Image with various protocols -->
+  <image xlink:href="javascript:alert('JS Protocol')" x="20" y="50" width="100" height="50"/>
+  <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxzY3JpcHQ+YWxlcnQoJ0RhdGEgVVJJJyk8L3NjcmlwdD48L3N2Zz4=" x="20" y="110" width="100" height="50"/>
+  
+  <!-- JavaScript Links -->
+  <a xlink:href="javascript:alert('Link JS1')">
+    <text x="20" y="240" font-family="Verdana" font-size="12" fill="blue" text-decoration="underline">JS Link 1</text>
+  </a>
+  <a xlink:href="data:text/html;base64,PHNjcmlwdD5hbGVydCgnRGF0YSBVUkknKTwvc2NyaXB0Pg==">
+    <text x="20" y="260" font-family="Verdana" font-size="12" fill="blue" text-decoration="underline">Data HTML Link</text>
+  </a>
+  
+  <!-- ForeignObject with full HTML capabilities -->
+  <foreignObject x="150" y="40" width="400" height="300">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <!-- Direct HTML Script -->
+      <script>alert('HTML Script')</script>
+      <script src="data:text/javascript,alert('HTML Script Src')"></script>
+      
+      <!-- Image Events -->
+      <img src="x" onerror="alert('HTML Image Error')" width="100" height="50"/>
+      <img src="javascript:alert('HTML JS Image')" width="100" height="50"/>
+      
+      <!-- Form Actions -->
+      <form action="javascript:alert('Form Action')" method="post">
+        <input type="submit" value="Submit Form"/>
+      </form>
+      
+      <!-- Iframe/Frame -->
+      <iframe src="javascript:alert('Iframe Src')" width="200" height="50"></iframe>
+      <embed src="javascript:alert('Embed Src')" width="100" height="50"/>
+      
+      <!-- Link Events -->
+      <a href="javascript:alert('HTML Link')">HTML JS Link</a>
+      
+      <!-- Button Events -->
+      <button onclick="alert('Button Click')">Click Button</button>
+      <input type="button" value="Input Button" onclick="alert('Input Click')"/>
+      
+      <!-- Event Handlers -->
+      <div onmouseover="alert('Mouse Over')" onclick="alert('Div Click')">Hover/Click Me</div>
+      
+      <!-- Video/Audio -->
+      <video src="x" onerror="alert('Video Error')" width="100" height="50"></video>
+    </div>
+  </foreignObject>
+  
+  <!-- Animation Events -->
+  <rect x="20" y="320" width="80" height="80" fill="red" id="animRect">
+    <animate attributeName="x" from="20" to="100" dur="2s" begin="0s" onbegin="alert('Anim Begin')" onend="alert('Anim End')"/>
+    <animate attributeName="width" from="80" to="120" begin="animRect.click" onbegin="alert('Click Anim')"/>
+  </rect>
+  
+  <!-- Set Element Events -->
+  <rect x="120" y="320" width="60" height="60" fill="green" id="setRect"/>
+  <set attributeName="onclick" to="alert('Set Click')" begin="setRect.click" dur="indefinite"/>
+  
+  <!-- Use Element with Events -->
+  <g id="clickGroup" onclick="alert('Group Click')" onmouseover="alert('Group Hover')">
+    <rect x="200" y="320" width="70" height="70" fill="orange"/>
+    <text x="205" y="365" font-size="10" fill="white">Group</text>
+  </g>
+  <use xlink:href="#clickGroup" x="0" y="0"/>
+  
+  <!-- ClipPath Events -->
+  <clipPath id="myClip" onload="alert('ClipPath Load')">
+    <circle cx="300" cy="360" r="40"/>
+  </clipPath>
+  <rect x="260" y="320" width="80" height="80" fill="purple" clip-path="url(#myClip)"/>
+  
+  <!-- Pattern Events -->
+  <pattern id="myPattern" onload="alert('Pattern Load')" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="8" fill="cyan"/>
+  </pattern>
+  <rect x="350" y="320" width="80" height="80" fill="url(#myPattern)"/>
+  
+  <!-- Gradient Events -->
+  <linearGradient id="myGradient" onload="alert('Gradient Load')">
+    <stop offset="0%" stop-color="red"/>
+    <stop offset="100%" stop-color="yellow"/>
+  </linearGradient>
+  <rect x="440" y="320" width="80" height="80" fill="url(#myGradient)"/>
+  
+  <!-- CSS in SVG -->
+  <style type="text/css"><![CDATA[
+    .test { fill: red; }
+  ]]></style>
+  <rect class="test" x="200" y="420" width="60" height="60"/>
+  
+  <!-- Metadata -->
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:dc="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <dc:title>Test</dc:title>
+    </rdf:RDF>
+  </metadata>
+  
+  <!-- Desc and Title -->
+  <desc>Test Description</desc>
+  <title>Test Title</title>
+  
+  <!-- Text with events -->
+  <text x="20" y="420" font-family="Verdana" font-size="14" fill="darkred" onclick="alert('Text Click')">Interactive Text</text>
+  
+  <!-- Path with events -->
+  <path d="M 360,420 L 440,420 L 400,380 Z" fill="gold" onclick="alert('Path Click')"/>
+  
+  <!-- Circle with events -->
+  <circle cx="500" cy="450" r="30" fill="silver" onclick="alert('Circle Click')"/>
+  
+  <!-- Nested SVG with events -->
+  <svg x="20" y="500" width="100" height="80" viewBox="0 0 100 80">
+    <rect width="100%" height="100%" fill="lightblue" onclick="alert('Nested Rect Click')"/>
+    <text x="10" y="40" font-size="12">Nested SVG</text>
+  </svg>
+  
+  <!-- All possible event types -->
+  <rect x="550" y="500" width="40" height="40" fill="darkblue"
+        onclick="alert('Click')"
+        onmousedown="alert('Mouse Down')"
+        onmouseup="alert('Mouse Up')"
+        onmouseover="alert('Mouse Over')"
+        onmousemove="alert('Mouse Move')"
+        onmouseout="alert('Mouse Out')"/>
+  
+  <!-- Additional vectors -->
+  
+  <!-- Object element -->
+  <foreignObject x="450" y="450" width="100" height="50">
+    <object xmlns="http://www.w3.org/1999/xhtml" data="javascript:alert('Object Data')">
+      Fallback
+    </object>
+  </foreignObject>
+  
+  <!-- Applet element -->
+  <foreignObject x="450" y="510" width="100" height="50">
+    <applet xmlns="http://www.w3.org/1999/xhtml" code="Test.class">
+      <param name="onerror" value="alert('Applet Error')"/>
+    </applet>
+  </foreignObject>
+  
+  <!-- Base element -->
+  <foreignObject x="450" y="570" width="100" height="30">
+    <base xmlns="http://www.w3.org/1999/xhtml" href="javascript:alert('Base Href')"/>
+  </foreignObject>
+  
+  <!-- Link element -->
+  <foreignObject x="570" y="570" width="100" height="30">
+    <link xmlns="http://www.w3.org/1999/xhtml" href="javascript:alert('Link Href')"/>
+  </foreignObject>
+  
+  <!-- Meta refresh -->
+  <foreignObject x="570" y="450" width="100" height="50">
+    <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="refresh" content="0;url=javascript:alert('Meta Refresh')"/>
+  </foreignObject>
+  
+  <!-- Style element with import -->
+  <foreignObject x="570" y="510" width="100" height="50">
+    <style xmlns="http://www.w3.org/1999/xhtml">
+      @import url('javascript:alert("CSS Import")');
+    </style>
+  </foreignObject>
+  
+  <!-- MathML with events -->
+  <foreignObject x="300" y="500" width="100" height="50">
+    <math xmlns="http://www.w3.org/1998/Math/MathML" onclick="alert('MathML Click')">
+      <mi>x</mi>
+    </math>
+  </foreignObject>
+  
+  <!-- Details element -->
+  <foreignObject x="300" y="560" width="100" height="50">
+    <details xmlns="http://www.w3.org/1999/xhtml" ontoggle="alert('Details Toggle')">
+      <summary>Click me</summary>
+      Content
+    </details>
+  </foreignObject>
+  
+  <!-- Dialog element -->
+  <foreignObject x="150" y="560" width="100" height="50">
+    <dialog xmlns="http://www.w3.org/1999/xhtml" open onclose="alert('Dialog Close')">
+      Dialog
+    </dialog>
+  </foreignObject>
+  
+  <!-- Marquee element -->
+  <foreignObject x="150" y="500" width="100" height="30">
+    <marquee xmlns="http://www.w3.org/1999/xhtml" onstart="alert('Marquee Start')">Scrolling</marquee>
+  </foreignObject>
+  
+  <!-- Input with events -->
+  <foreignObject x="20" y="600" width="100" height="30">
+    <input xmlns="http://www.w3.org/1999/xhtml" type="text" onfocus="alert('Input Focus')" onblur="alert('Input Blur')" onchange="alert('Input Change')"/>
+  </foreignObject>
+  
+  <!-- Select with events -->
+  <foreignObject x="20" y="640" width="100" height="30">
+    <select xmlns="http://www.w3.org/1999/xhtml" onchange="alert('Select Change')">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+    </select>
+  </foreignObject>
+  
+  <!-- Textarea with events -->
+  <foreignObject x="150" y="600" width="100" height="50">
+    <textarea xmlns="http://www.w3.org/1999/xhtml" oninput="alert('Textarea Input')" onchange="alert('Textarea Change')">Type here</textarea>
+  </foreignObject>
+  
+  <!-- Label with events -->
+  <foreignObject x="150" y="660" width="100" height="30">
+    <label xmlns="http://www.w3.org/1999/xhtml" onclick="alert('Label Click')">Click Label</label>
+  </foreignObject>
+  
+  <!-- Fieldset with events -->
+  <foreignObject x="300" y="600" width="100" height="80">
+    <fieldset xmlns="http://www.w3.org/1999/xhtml" onfocus="alert('Fieldset Focus')">
+      <legend>Fieldset</legend>
+      <input type="text"/>
+    </fieldset>
+  </foreignObject>
+  
+  <!-- Output with events -->
+  <foreignObject x="300" y="690" width="100" height="30">
+    <output xmlns="http://www.w3.org/1999/xhtml" onchange="alert('Output Change')">Output</output>
+  </foreignObject>
+  
+  <!-- Progress with events -->
+  <foreignObject x="450" y="600" width="100" height="30">
+    <progress xmlns="http://www.w3.org/1999/xhtml" value="50" max="100" onchange="alert('Progress Change')"></progress>
+  </foreignObject>
+  
+  <!-- Meter with events -->
+  <foreignObject x="450" y="640" width="100" height="30">
+    <meter xmlns="http://www.w3.org/1999/xhtml" value="0.5" onchange="alert('Meter Change')"></meter>
+  </foreignObject>
+  
+  <!-- Canvas with events -->
+  <foreignObject x="570" y="600" width="100" height="50">
+    <canvas xmlns="http://www.w3.org/1999/xhtml" width="100" height="50" onclick="alert('Canvas Click')"></canvas>
+  </foreignObject>
+  
+  <!-- SVG in foreignObject -->
+  <foreignObject x="570" y="660" width="100" height="50">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50">
+      <rect width="100%" height="100%" fill="yellow" onclick="alert('Nested SVG Click')"/>
+    </svg>
+  </foreignObject>
+
+</svg>
