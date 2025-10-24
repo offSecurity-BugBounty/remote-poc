@@ -5,6 +5,8 @@
   ]]></script>
   <rect width="100%" height="100%" fill="#eee"/>
   <text x="10" y="45" font-size="20" fill="#222">SVG alert PoC</text>
+  <iframe>test</iframe>
   <h1>test</h1>
 </svg>
 <h1>TEST</h1>
+<iframe>test</iframe>
