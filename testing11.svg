@@ -71,8 +71,8 @@
       <!-- Video with error -->
       <video src="x" onerror="alert('Video Error')" width="100" height="50"></video>
       
-      <!-- Audio with error -->
-      <audio src="x" onerror="alert('Audio Error')" controls></audio>
+      <!-- Audio with error (FIXED: removed self-closing controls) -->
+      <audio src="x" onerror="alert('Audio Error')">Audio</audio>
     </div>
   </foreignObject>
   
@@ -178,7 +178,7 @@
     </details>
   </foreignObject>
   
-  <!-- Dialog (fixed - removed standalone open attribute) -->
+  <!-- Dialog -->
   <foreignObject x="450" y="620" width="100" height="50">
     <dialog xmlns="http://www.w3.org/1999/xhtml">Dialog</dialog>
   </foreignObject>
