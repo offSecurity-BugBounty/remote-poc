@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="80" onload="alert(1)">
-  <script>
-    alert(1)
-  </script>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="120" onload="init()">
+  <script><![CDATA[
+    function init(){ alert(1); }
+  ]]></script>
+
   <rect width="100%" height="100%" fill="#eee"/>
   <text x="10" y="45" font-size="20" fill="#222">SVG alert PoC</text>
-  <iframe>test</iframe>
-  <h1>test</h1>
+
+  <!-- Embed HTML if you must, using foreignObject + XHTML namespace -->
+  <foreignObject x="10" y="60" width="380" height="50">
+    <body xmlns="http://www.w3.org/1999/xhtml">
+      <h1 style="font-size:14px;margin:0">HTML inside SVG using foreignObject</h1>
+    </body>
+  </foreignObject>
 </svg>
