@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="800" viewBox="0 0 800 800">
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f8f8"/>
+  <text x="20" y="30" font-family="Verdana" font-size="20" fill="#333">SVG Security Test</text>
+  
+  <!-- 1. Direct Script Blocks -->
+  <script type="text/ecmascript"><![CDATA[try { alert('Direct Script 1'); } catch(e) {}]]></script>
+  <script type="text/javascript"><![CDATA[try { alert('Direct Script 2'); } catch(e) {}]]></script>
+  
+  <!-- 2. Script via data href -->
+  <script type="application/ecmascript" xlink:href="data:application/javascript,alert('Href Script')"/>
+  
+  <!-- 3. Image with JS protocol -->
+  <image xlink:href="javascript:alert('JS Protocol Image')" x="20" y="50" width="100" height="50"/>
+  
+  <!-- 4. Image with data URI SVG -->
+  <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxzY3JpcHQ+YWxlcnQoJ0RhdGEgVVJJJyk8L3NjcmlwdD48L3N2Zz4=" x="20" y="110" width="100" height="50"/>
+  
+  <!-- 5. JavaScript Links -->
+  <a xlink:href="javascript:alert('Link JS1')">
+    <text x="20" y="180" font-family="Verdana" font-size="12" fill="blue" text-decoration="underline">JS Link 1</text>
+  </a>
+  
+  <a xlink:href="data:text/html;base64,PHNjcmlwdD5hbGVydCgnRGF0YSBVUkknKTwvc2NyaXB0Pg==">
+    <text x="20" y="200" font-family="Verdana" font-size="12" fill="blue" text-decoration="underline">Data HTML Link</text>
+  </a>
+  
+  <!-- 6. Main ForeignObject with HTML content -->
+  <foreignObject x="150" y="40" width="400" height="400">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <!-- HTML Script -->
+      <script>alert('HTML Script')</script>
+      
+      <!-- HTML Script with src -->
+      <script src="data:text/javascript,alert('HTML Script Src')"></script>
+      
+      <!-- Image with error -->
+      <img src="x" onerror="alert('HTML Image Error')" width="100" height="50"/>
+      
+      <!-- Image with JS protocol -->
+      <img src="javascript:alert('HTML JS Image')" width="100" height="50"/>
+      
+      <!-- Form with JS action -->
+      <form action="javascript:alert('Form Action')" method="post">
+        <input type="submit" value="Submit Form"/>
+      </form>
+      
+      <!-- Iframe with JS -->
+      <iframe src="javascript:alert('Iframe Src')" width="200" height="50"></iframe>
+      
+      <!-- Embed with JS -->
+      <embed src="javascript:alert('Embed Src')" width="100" height="50"/>
+      
+      <!-- Object with JS -->
+      <object data="javascript:alert('Object Data')" width="100" height="50"></object>
+      
+      <!-- Link with JS -->
+      <a href="javascript:alert('HTML Link')">HTML JS Link</a>
+      
+      <!-- Button with click -->
+      <button onclick="alert('Button Click')">Click Button</button>
+      
+      <!-- Input with click -->
+      <input type="button" value="Input Button" onclick="alert('Input Click')"/>
+      
+      <!-- Div with events -->
+      <div onmouseover="alert('Mouse Over')" onclick="alert('Div Click')">Hover/Click Me</div>
+      
+      <!-- Video with error -->
+      <video src="x" onerror="alert('Video Error')" width="100" height="50"></video>
+      
+      <!-- Audio with error (FIXED: removed self-closing controls) -->
+      <audio src="x" onerror="alert('Audio Error')">Audio</audio>
+    </div>
+  </foreignObject>
+  
+  <!-- 7. Animation Events -->
+  <rect x="20" y="250" width="80" height="80" fill="red" id="animRect">
+    <animate attributeName="x" from="20" to="100" dur="2s" begin="0s" onbegin="alert('Anim Begin')" onend="alert('Anim End')"/>
+    <animate attributeName="width" from="80" to="120" begin="animRect.click" onbegin="alert('Click Anim')"/>
+  </rect>
+  
+  <!-- 8. Set Element Events -->
+  <rect x="120" y="250" width="60" height="60" fill="green" id="setRect"/>
+  <set attributeName="onclick" to="alert('Set Click')" begin="setRect.click" dur="indefinite"/>
+  <set attributeName="onmouseover" to="alert('Set Hover')" begin="setRect.mouseover" dur="indefinite"/>
+  
+  <!-- 9. Use Element with Events -->
+  <g id="clickGroup" onclick="alert('Group Click')" onmouseover="alert('Group Hover')">
+    <rect x="200" y="250" width="70" height="70" fill="orange"/>
+    <text x="205" y="295" font-size="10" fill="white">Group</text>
+  </g>
+  <use xlink:href="#clickGroup" x="0" y="0"/>
+  
+  <!-- 10. ClipPath Events -->
+  <clipPath id="myClip" onload="alert('ClipPath Load')">
+    <circle cx="300" cy="290" r="40"/>
+  </clipPath>
+  <rect x="260" y="250" width="80" height="80" fill="purple" clip-path="url(#myClip)"/>
+  
+  <!-- 11. Pattern Events -->
+  <pattern id="myPattern" onload="alert('Pattern Load')" width="20" height="20" patternUnits="userSpaceOnUse">
+    <circle cx="10" cy="10" r="8" fill="cyan"/>
+  </pattern>
+  <rect x="350" y="250" width="80" height="80" fill="url(#myPattern)"/>
+  
+  <!-- 12. Gradient Events -->
+  <linearGradient id="myGradient" onload="alert('Gradient Load')">
+    <stop offset="0%" stop-color="red"/>
+    <stop offset="100%" stop-color="yellow"/>
+  </linearGradient>
+  <rect x="440" y="250" width="80" height="80" fill="url(#myGradient)"/>
+  
+  <!-- 13. CSS Style -->
+  <style type="text/css"><![CDATA[.test { fill: red; }]]></style>
+  <rect class="test" x="20" y="350" width="60" height="60"/>
+  
+  <!-- 14. Text with events -->
+  <text x="20" y="450" font-family="Verdana" font-size="14" fill="darkred" onclick="alert('Text Click')">Click Text</text>
+  
+  <!-- 15. Path with events -->
+  <path d="M 100,450 L 180,450 L 140,410 Z" fill="gold" onclick="alert('Path Click')"/>
+  
+  <!-- 16. Circle with events -->
+  <circle cx="240" cy="450" r="30" fill="silver" onclick="alert('Circle Click')"/>
+  
+  <!-- 17. Nested SVG -->
+  <svg x="20" y="500" width="100" height="80" viewBox="0 0 100 80">
+    <rect width="100%" height="100%" fill="lightblue" onclick="alert('Nested Rect Click')"/>
+    <text x="10" y="40" font-size="12">Nested SVG</text>
+  </svg>
+  
+  <!-- 18. Multiple event types -->
+  <rect x="150" y="500" width="40" height="40" fill="darkblue"
+        onclick="alert('Click')"
+        onmousedown="alert('Mouse Down')"
+        onmouseup="alert('Mouse Up')"
+        onmouseover="alert('Mouse Over')"
+        onmousemove="alert('Mouse Move')"
+        onmouseout="alert('Mouse Out')"/>
+  
+  <!-- 19. Additional ForeignObject vectors -->
+  
+  <!-- Base element -->
+  <foreignObject x="300" y="500" width="100" height="30">
+    <base xmlns="http://www.w3.org/1999/xhtml" href="javascript:alert('Base Href')"/>
+  </foreignObject>
+  
+  <!-- Link element -->
+  <foreignObject x="300" y="540" width="100" height="30">
+    <link xmlns="http://www.w3.org/1999/xhtml" href="javascript:alert('Link Href')"/>
+  </foreignObject>
+  
+  <!-- Meta refresh -->
+  <foreignObject x="300" y="580" width="100" height="30">
+    <meta xmlns="http://www.w3.org/1999/xhtml" http-equiv="refresh" content="0;url=javascript:alert('Meta Refresh')"/>
+  </foreignObject>
+  
+  <!-- Style with import -->
+  <foreignObject x="300" y="620" width="100" height="30">
+    <style xmlns="http://www.w3.org/1999/xhtml">@import url('javascript:alert("CSS Import")');</style>
+  </foreignObject>
+  
+  <!-- MathML -->
+  <foreignObject x="450" y="500" width="100" height="50">
+    <math xmlns="http://www.w3.org/1998/Math/MathML" onclick="alert('MathML Click')">
+      <mi>x</mi>
+    </math>
+  </foreignObject>
+  
+  <!-- Details -->
+  <foreignObject x="450" y="560" width="100" height="50">
+    <details xmlns="http://www.w3.org/1999/xhtml" ontoggle="alert('Details Toggle')">
+      <summary>Click me</summary>
+      Content
+    </details>
+  </foreignObject>
+  
+  <!-- Dialog -->
+  <foreignObject x="450" y="620" width="100" height="50">
+    <dialog xmlns="http://www.w3.org/1999/xhtml">Dialog</dialog>
+  </foreignObject>
+  
+  <!-- Marquee -->
+  <foreignObject x="600" y="500" width="100" height="30">
+    <marquee xmlns="http://www.w3.org/1999/xhtml" onstart="alert('Marquee Start')">Scrolling</marquee>
+  </foreignObject>
+  
+  <!-- Input events -->
+  <foreignObject x="600" y="540" width="100" height="30">
+    <input xmlns="http://www.w3.org/1999/xhtml" type="text" onfocus="alert('Input Focus')" onblur="alert('Input Blur')"/>
+  </foreignObject>
+  
+  <!-- Select events -->
+  <foreignObject x="600" y="580" width="100" height="30">
+    <select xmlns="http://www.w3.org/1999/xhtml" onchange="alert('Select Change')">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+    </select>
+  </foreignObject>
+  
+  <!-- Textarea events -->
+  <foreignObject x="600" y="620" width="100" height="50">
+    <textarea xmlns="http://www.w3.org/1999/xhtml" oninput="alert('Textarea Input')">Type here</textarea>
+  </foreignObject>
+  
+  <!-- Label events -->
+  <foreignObject x="600" y="680" width="100" height="30">
+    <label xmlns="http://www.w3.org/1999/xhtml" onclick="alert('Label Click')">Click Label</label>
+  </foreignObject>
+  
+  <!-- Fieldset events -->
+  <foreignObject x="450" y="680" width="100" height="80">
+    <fieldset xmlns="http://www.w3.org/1999/xhtml">
+      <legend>Fieldset</legend>
+      <input type="text"/>
+    </fieldset>
+  </foreignObject>
+  
+  <!-- Progress events -->
+  <foreignObject x="300" y="680" width="100" height="30">
+    <progress xmlns="http://www.w3.org/1999/xhtml" value="50" max="100">50%</progress>
+  </foreignObject>
+  
+  <!-- Meter events -->
+  <foreignObject x="300" y="720" width="100" height="30">
+    <meter xmlns="http://www.w3.org/1999/xhtml" value="0.5">50%</meter>
+  </foreignObject>
+  
+  <!-- Canvas events -->
+  <foreignObject x="150" y="680" width="100" height="50">
+    <canvas xmlns="http://www.w3.org/1999/xhtml" width="100" height="50" onclick="alert('Canvas Click')"></canvas>
+  </foreignObject>
+  
+  <!-- SVG in foreignObject -->
+  <foreignObject x="150" y="740" width="100" height="50">
+    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="50">
+      <rect width="100%" height="100%" fill="yellow" onclick="alert('Nested SVG Click')"/>
+    </svg>
+  </foreignObject>
+  
+  <!-- 20. Mask Events -->
+  <mask id="myMask">
+    <rect width="100%" height="100%" fill="white"/>
+  </mask>
+  <rect x="500" y="350" width="80" height="80" fill="teal" mask="url(#myMask)"/>
+  
+  <!-- 21. Symbol Events -->
+  <symbol id="mySymbol" viewBox="0 0 50 50">
+    <circle cx="25" cy="25" r="20" fill="pink"/>
+  </symbol>
+  <use xlink:href="#mySymbol" x="600" y="350" width="50" height="50"/>
+  
+  <!-- 22. Marker Events -->
+  <marker id="myMarker" markerWidth="10" markerHeight="10" refX="5" refY="5">
+    <circle cx="5" cy="5" r="4" fill="brown"/>
+  </marker>
+  <path d="M 500,450 L 580,450" stroke="black" stroke-width="2" marker-start="url(#myMarker)"/>
+  
+  <!-- 23. Filter Events -->
+  <filter id="myFilter">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="5"/>
+  </filter>
+  <rect x="500" y="500" width="60" height="60" fill="navy" filter="url(#myFilter)"/>
+  
+  <!-- 24. Switch element -->
+  <switch>
+    <text x="500" y="580" font-family="Verdana" font-size="12">Switch Content</text>
+  </switch>
+  
+  <!-- 25. View element -->
+  <view id="myView"/>
+  
+  <!-- 26. Desc and Title -->
+  <desc>Test Description</desc>
+  <title>Test Title</title>
+  
+  <!-- 27. Metadata -->
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/">
+      <dc:title>Test</dc:title>
+    </rdf:RDF>
+  </metadata>
+
+</svg>
