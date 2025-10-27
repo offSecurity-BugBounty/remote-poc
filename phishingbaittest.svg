@@ -1,54 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="300" viewBox="0 0 400 300">
   
-  <!-- Background gradient -->
-  <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f0f8ff"/>
-      <stop offset="100%" stop-color="#e6f3ff"/>
-    </linearGradient>
-  </defs>
+  <!-- Background with link -->
+  <a xlink:href="https://bugcrowd.com/">
+    <rect width="100%" height="100%" fill="#f0f8ff"/>
+  </a>
   
-  <rect width="100%" height="100%" fill="url(#bgGradient)"/>
+  <!-- Header with link -->
+  <a xlink:href="https://bugcrowd.com/">
+    <text x="200" y="40" font-family="Arial" font-size="24" fill="#0066cc" text-anchor="middle">Security Reward Program</text>
+  </a>
   
-  <!-- Header -->
-  <rect width="100%" height="50" fill="#0066cc"/>
-  <text x="200" y="30" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" font-weight="bold">
-    Bugcrowd Security Rewards
-  </text>
-  
-  <!-- Main content -->
-  <text x="200" y="90" font-family="Arial, sans-serif" font-size="20" fill="#333" text-anchor="middle" font-weight="bold">
-    Special Bonus Award!
-  </text>
-  
-  <!-- Reward badge -->
-  <circle cx="200" cy="140" r="40" fill="#ffd700" stroke="#ff9900" stroke-width="2"/>
-  <text x="200" y="145" font-family="Arial, sans-serif" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">
-    $100
-  </text>
-  <text x="200" y="165" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">
-    USD
-  </text>
-  
-  <!-- Instruction text -->
-  <text x="200" y="200" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">
-    Click below to claim your reward
-  </text>
-  
-  <!-- Primary Bugcrowd link -->
-  <a xlink:href="https://bugcrowd.com/" target="_blank">
-    <rect x="100" y="220" width="200" height="35" fill="#28a745" rx="8" ry="8"/>
-    <text x="200" y="242" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="bold">
-      🎁 Claim Your $100 Reward
+  <!-- Main message with link -->
+  <a xlink:href="https://bugcrowd.com/">
+    <text x="200" y="80" font-family="Arial" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">
+      Congratulations! You've been selected for a special bonus
     </text>
   </a>
   
-  <!-- Secondary Bugcrowd link -->
-  <a xlink:href="https://bugcrowd.com/" target="_blank">
-    <text x="200" y="275" font-family="Arial, sans-serif" font-size="12" fill="#0066cc" text-anchor="middle" text-decoration="underline">
-      Click here for alternative verification
+  <!-- Reward amount with link -->
+  <a xlink:href="https://bugcrowd.com/">
+    <rect x="150" y="100" width="100" height="40" fill="#ffd700" rx="5" ry="5"/>
+    <text x="200" y="125" font-family="Arial" font-size="18" fill="#333" text-anchor="middle" font-weight="bold">
+      $100 USD
     </text>
+  </a>
+  
+  <!-- Instructions with link -->
+  <a xlink:href="https://bugcrowd.com/">
+    <text x="200" y="160" font-family="Arial" font-size="14" fill="#666" text-anchor="middle">
+      Click the link below to claim your reward instantly
+    </text>
+  </a>
+  
+  <!-- First Bugcrowd link -->
+  <a xlink:href="https://bugcrowd.com/">
+    <rect x="120" y="180" width="160" height="30" fill="#0066cc" rx="5" ry="5"/>
+    <text x="200" y="200" font-family="Arial" font-size="14" fill="white" text-anchor="middle" font-weight="bold">
+      Claim Your $100 Reward
+    </text>
+  </a>
+  
+  <!-- Second Bugcrowd link (alternative) -->
+  <a xlink:href="https://bugcrowd.com/">
+    <rect x="120" y="220" width="160" height="25" fill="#28a745" rx="5" ry="5"/>
+    <text x="200" y="238" font-family="Arial" font-size="12" fill="white" text-anchor="middle">
+      Secure Verification Required
+    </text>
+  </a>
+  
+  <!-- Footer note with link -->
+  <a xlink:href="https://bugcrowd.com/">
+    <text x="200" y="270" font-family="Arial" font-size="10" fill="#999" text-anchor="middle">
+      Limited time offer - Claim before it expires
+    </text>
+  </a>
+  
+  <!-- Invisible clickable areas covering empty spaces -->
+  <a xlink:href="https://bugcrowd.com/">
+    <rect x="0" y="0" width="120" height="300" fill="transparent"/>
+  </a>
+  <a xlink:href="https://bugcrowd.com/">
+    <rect x="280" y="0" width="120" height="300" fill="transparent"/>
+  </a>
+  <a xlink:href="https://bugcrowd.com/">
+    <rect x="120" y="0" width="160" height="100" fill="transparent"/>
+  </a>
+  <a xlink:href="https://bugcrowd.com/">
+    <rect x="120" y="245" width="160" height="55" fill="transparent"/>
   </a>
 
 </svg>
