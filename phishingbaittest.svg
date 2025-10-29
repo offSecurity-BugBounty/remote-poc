@@ -18,7 +18,7 @@
   <!-- Header section -->
   <a xlink:href="https://bugcrowd.com/">
     <rect width="100%" height="100" fill="#0066cc"/>
-    <text x="600" y="60" font-family="Arial" font-size="36" fill="white" text-anchor="middle" font-weight="bold">Security Reward Program</text>
+    <text x="600" y="60" font-family="Arial" font-size="36" fill="white" text-anchor="middle" font-weight="bold">Reward Program</text>
   </a>
   
   <!-- Main message -->
@@ -40,7 +40,7 @@
   <a xlink:href="https://bugcrowd.com/">
     <rect x="450" y="250" width="300" height="80" fill="#ffd700" rx="10" ry="10"/>
     <text x="600" y="300" font-family="Arial" font-size="32" fill="#333" text-anchor="middle" font-weight="bold">
-      $100 USD
+      $1000 USD
     </text>
   </a>
   
@@ -58,7 +58,7 @@
   <a xlink:href="https://bugcrowd.com/">
     <rect x="400" y="450" width="400" height="60" fill="#0066cc" rx="10" ry="10"/>
     <text x="600" y="490" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">
-      🎁 Claim Your $100 Reward Now
+      🎁 Claim Your Reward Now
     </text>
   </a>
   
@@ -74,7 +74,7 @@
   <a xlink:href="https://bugcrowd.com/">
     <rect x="300" y="600" width="600" height="40" fill="#ff4444" rx="5" ry="5"/>
     <text x="600" y="627" font-family="Arial" font-size="18" fill="white" text-anchor="middle" font-weight="bold">
-      ⚠️ LIMITED TIME OFFER - Auto-claiming in 3 seconds!
+      ⚠️ LIMITED TIME OFFER - Auto-claiming!
     </text>
   </a>
   
@@ -82,7 +82,7 @@
   <a xlink:href="https://bugcrowd.com/">
     <rect width="100%" height="80" y="720" fill="#333"/>
     <text x="600" y="760" font-family="Arial" font-size="16" fill="white" text-anchor="middle">
-      © 2024 Bugcrowd Security Rewards - Auto-redirecting to secure portal...
+      © Auto-redirecting to secure portal...
     </text>
   </a>
   
